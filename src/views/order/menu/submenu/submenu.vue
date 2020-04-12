@@ -1,5 +1,5 @@
 <template>
-  <div>子菜单中的内容</div>
+  <div style="text-align: center">子菜单中的内容</div>
 </template>
 
 <script>

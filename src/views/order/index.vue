@@ -1,9 +1,6 @@
 <template>
-  <div class="wrap">
-   <index></index>
     <div class="content">
       <router-view/>
-    </div>
   </div>
 
 </template>
