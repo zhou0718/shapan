@@ -8,7 +8,7 @@
               @open="handleOpen"
               @close="handleClose"
               router>
-         <el-submenu>
+         <el-submenu index="1-1">
            <template slot="title">导航一</template>
         <el-menu-item-group>
           <el-menu-item index="/"><i class="el-icon-plus"></i>订单管理</el-menu-item>

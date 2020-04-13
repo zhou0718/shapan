@@ -13,12 +13,12 @@ Vue.use(VueRouter)
         {
           path:'order',
           name: 'Order',
-          component: () => import('../views/order/menu/order'),
+          component: () => import('../views/order/order'),
           children: [
             {
               path: 'test',
               name: 'Test',
-              components: () => import ('../views/order/menu/submenu/submenu')
+              components: () => import ('../views/order/submenu')
             }
           ]
         }
