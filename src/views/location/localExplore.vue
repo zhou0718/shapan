@@ -151,7 +151,7 @@
 
 </style>-->
 
-<template>
+<!--<template>
   <div class="prev-tree">
     <div class="file-up-load">
       <el-upload
@@ -664,5 +664,94 @@
   .echart-tree{
     margin: 60px 0 0 35px;
 
+  }
+</style>-->
+<template>
+  <div class="explore">
+    <div class="explore-top">
+      <el-button type="primary" @click="startExplore">开始探测</el-button>
+      <div class="my-steps">
+        <el-steps :active="active" finish-status="success">
+          <el-step title="开始探测"></el-step>
+          <el-step title="加载探测目标"></el-step>
+          <el-step title="下载分析结果"></el-step>
+          <el-step title="生成结果"></el-step>
+        </el-steps>
+      </div>
+    </div>
+    <div class="explore-table">
+      <el-table
+              :data="tableData"
+              stripe
+              style="width: 95%">
+        <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
+        </el-table-column>
+        <el-table-column
+                prop="address"
+                label="地址">
+        </el-table-column>
+      </el-table>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "localExplore",
+    data(){
+      return{
+        active:0,
+        tableData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄'
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }]
+      }
+    },
+    methods:{
+      startExplore(){
+       /* setTimeout(function () {
+          if(this.active++ > 3){
+            this.active = 0;
+          }
+        },2000)*/
+        if(this.active++ > 3){
+          this.active = 0;
+        }
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .explore-top{
+    /*margin-left: 30px;*/
+  }
+  .my-steps{
+    display: inline-block;
+    width: 900px;
+    position: relative;
+    left: 100px;
+    top: -10px;
   }
 </style>
