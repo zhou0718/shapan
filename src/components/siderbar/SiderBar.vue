@@ -20,58 +20,11 @@
               @close="handleClose"
               router>
 
-       <!-- <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-plus"></i>
-            <span>订单管理</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title"></template>
-            <el-menu-item index="/order">选项1</el-menu-item>
-            <el-menu-item index="/website">选项2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-message"></i>
-            <span>网站管理</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title"></template>
-            <el-menu-item index="/order">选项1</el-menu-item>
-            <el-menu-item index="/website">选项2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-circle-check"></i>
-            <span>用户管理</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title"></template>
-            <el-menu-item index="/order">选项1</el-menu-item>
-            <el-menu-item index="/website">选项2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-        <el-submenu index="4">
-          <template slot="title">
-            <i class="el-icon-setting"></i>
-            <span>代理管理</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title"></template>
-            <el-menu-item index="/order">选项1</el-menu-item>
-            <el-menu-item index="/website">选项2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>-->
 
         <el-submenu index="/order">
           <template slot="title">
             <i class="el-icon-plus"></i>
-            <span>可视化</span>
+            <span>IPv6可视化</span>
           </template>
           <el-menu-item-group class="submenu">
             <template slot="title"></template>
@@ -85,7 +38,7 @@
         <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-message"></i>
-            <span>路由</span>
+            <span>IPv6路由宣告</span>
           </template>
           <el-menu-item-group class="submenu">
             <template slot="title"></template>
@@ -100,7 +53,7 @@
         <el-submenu index="3">
           <template slot="title">
             <i class="el-icon-add-location"></i>
-            <span>地址</span>
+            <span>IPv6地址分配</span>
           </template>
           <el-menu-item-group class="submenu">
             <template slot="title"></template>
@@ -113,7 +66,7 @@
         <el-submenu index="4">
           <template slot="title">
             <i class="el-icon-service"></i>
-            <span>服务</span>
+            <span>IPv6网站服务</span>
           </template>
           <el-menu-item-group class="submenu">
             <template slot="title"></template>
@@ -126,72 +79,17 @@
         <el-submenu index="5">
           <template slot="title">
             <i class="el-icon-location"></i>
-            <span>位置</span>
+            <span>IPv6地理位置</span>
           </template>
           <el-menu-item-group class="submenu">
             <template slot="title"></template>
             <el-menu-item index="/localExplore">探测</el-menu-item>
-            <el-menu-item index="/dot">统计</el-menu-item>
+            <el-menu-item index="/localStatistics">统计</el-menu-item>
             <el-menu-item index="/localView">查看</el-menu-item>
-           <!-- <el-menu-item index="5-2">标签管理</el-menu-item>
-            <el-menu-item index="5-2">搜索管理</el-menu-item>
-            <el-menu-item index="5-2">高级设置</el-menu-item>-->
+
           </el-menu-item-group>
         </el-submenu>
 
-      <!--  <el-submenu index="6">
-          <template slot="title">
-            <i class="el-icon-message"></i>
-            <span>报表</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title"></template>
-            <el-menu-item index="6-1">我的报表</el-menu-item>
-            <el-menu-item index="6-2">所有报表</el-menu-item>
-            <el-menu-item index="6-2">所有报表结果</el-menu-item>
-            <el-menu-item index="6-2">回收站</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-
-        <el-submenu index="7">
-          <template slot="title">
-            <i class="el-icon-circle-check"></i>
-            <span>配置</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title"></template>
-            <el-menu-item index="7-1">账号管理</el-menu-item>
-            <el-menu-item index="7-2">用户分组</el-menu-item>
-            <el-menu-item index="7-2">授权信息</el-menu-item>
-            <el-menu-item index="7-2">第三方集成</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
--->
-        <!--
-        <el-menu-item index="/submit"><i class="el-icon-plus"></i>订单提交</el-menu-item>
-        -->
-
-
-        <!-- <el-submenu index="1-1">
-           <template slot="title">订单管理</template>
-        <el-menu-item-group>
-          <el-menu-item index="/"><i class="el-icon-plus"></i>订单管理</el-menu-item>
-          <el-submenu>
-          <el-menu-item index="/order/test"><i class="el-icon-plus"></i>子菜单</el-menu-item>
-          </el-submenu>
-        </el-menu-item-group>
-         </el-submenu>-->
-
-      <!--  <el-menu-item index="/website"><i class="el-icon-message"></i>网站管理<i class="icon el-icon-arrow-right"></i></el-menu-item>-->
-        <!--
-                    <el-menu-item index="/company"><i class="el-icon-star-on"></i>接入商</el-menu-item>
-          -->
-      <!--  <el-menu-item index="/user"><i class="el-icon-circle-check"></i>用户管理 <i class="icon el-icon-arrow-right"></i></el-menu-item>-->
-        <!--          <el-menu-item index="/GeoDistribution"><i class="el-icon-menu"></i>地理分布</el-menu-item>-->
-        <!--          <el-menu-item index="/equipment"><i class="el-icon-setting"></i>导出配置</el-menu-item>-->
-<!--        <el-menu-item index="/proxy"><i class="el-icon-setting"></i>代理管理 <i class="icon el-icon-arrow-right"></i></el-menu-item>-->
-        <!-- <el-menu-item index="/config"><i class="el-icon-setting"></i>参数配置</el-menu-item>
-          <el-menu-item index="/query"><i class="el-icon-search"></i>数据查询</el-menu-item>-->
 
       </el-menu>
     </el-aside>
@@ -294,6 +192,7 @@
   .submenu{
     position: relative;
     left: 40px;
+    top: -20px;
   }
 </style>
 

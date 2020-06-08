@@ -43,3 +43,15 @@ export function requestGeo(pageNo, pageSize) {
     }
   })
 }
+
+// 文件上传
+export function requestFileUpload(file) {
+  return request({
+    url:'/file/upload',
+    method:'post',
+    // headers: { 'enctype': 'multipart/form-data' },
+    data:{
+      file
+    }
+  })
+}

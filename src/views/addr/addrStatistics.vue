@@ -1,13 +1,13 @@
 <template>
   <div class="my-charts">
     <div class="first">
-      <div id="bar-first" :style="{width:'600px',height:'400px'}"></div>
-      <div id="pie-first" :style="{width:'600px',height:'400px'}"></div>
+      <div id="bar-first" :style="{width:'75%',height:'400px'}"></div>
+      <div id="pie-first" :style="{width:'35%',height:'400px'}"></div>
     </div>
 
     <div class="second">
-      <div id="bar-second" :style="{width:'600px',height:'400px'}"></div>
-      <div id="pie-second" :style="{width:'600px',height:'400px'}"></div>
+      <div id="bar-second" :style="{width:'75%',height:'400px'}"></div>
+      <div id="pie-second" :style="{width:'35%',height:'400px'}"></div>
     </div>
   </div>
 </template>

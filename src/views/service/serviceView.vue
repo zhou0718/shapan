@@ -6,12 +6,13 @@
             border
             fit
             :header-cell-style="{'text-align':'left'}">
-      <el-table-column
-              type="index"/>
+
       <el-table-column
               prop="siteName"
               label="site_name" />
-
+      <el-table-column
+              prop="v6Address"
+              label="v6_address" />
       <el-table-column
               prop="siteType"
               label="site_type" />
@@ -27,9 +28,7 @@
               prop="v6DnsStatus"
               label="v6_dns_status" />
 
-      <el-table-column
-              prop="v6Address"
-              label="v6_address" />
+
       <el-table-column
               prop="probeTime"
               label="probe_time" />

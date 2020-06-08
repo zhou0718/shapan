@@ -157,18 +157,18 @@
       <el-upload
               class="upload-demo"
               ref="upload"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              :on-preview="handlePreview"
+              action="http://119.23.29.212:8086/file/upload"
+              :before-upload="beforeUpload"
               :on-remove="handleRemove"
               :before-remove="beforeRemove"
+              :on-success="success"
               multiple
               :limit="1"
               :on-exceed="handleExceed"
-              :file-list="fileList"
-              :auto-upload="false">
-        <el-button size="small" type="primary">选择文件</el-button>
-        <el-button size="small" type="primary" @click="submit">上传服务器</el-button>
+              :file-list="fileList">
+        <el-button size="small" type="primary">上传到服务器</el-button>
       </el-upload>
+     <!-- <el-button class="upload" style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>-->
     </div>
 
     <div class="echart-tree">
@@ -178,6 +178,8 @@
 </template>
 
 <script>
+  import {requestFileUpload} from "../../network/requestIPv6";
+
   let echarts = require('echarts/lib/echarts');
   /*require('echarts/lib/chart/line')
   require('echarts/lib/chart/bar')*/
@@ -189,10 +191,12 @@
     name: 'tree',
     data(){
       return{
-        fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
+        file:null,
+        fileList: [],
         chartData: {
-          "name": "flare",
-          "children": [
+          /*"name": "flare",*/
+          "children":[{"children":[{"name":"240e087800034(11)","value":11},{"name":"240e087800035(9)","value":9},{"name":"240e087800033(9)","value":9},{"name":"240e087800036(10)","value":10},{"name":"240e087800039(10)","value":10},{"name":"240e087800032(11)","value":11},{"name":"240e087800030(10)","value":10},{"name":"240e087800038(11)","value":11},{"name":"240e087800037(9)","value":9},{"name":"240e087800031(9)","value":9},{"name":"240e08780003a(5)","value":5}],"name":"240e08780003(104)","value":104},{"children":[{"name":"240e087800008(11)","value":11},{"name":"240e087800006(4)","value":4},{"name":"240e087800009(10)","value":10},{"name":"240e08780000a(11)","value":11},{"name":"240e087800001(8)","value":8},{"name":"240e087800000(4)","value":4},{"name":"240e08780000b(6)","value":6},{"name":"240e087800003(1)","value":1},{"name":"240e08780000c(3)","value":3},{"name":"240e087800007(8)","value":8}],"name":"240e08780000(66)","value":66},{"children":[{"name":"240e087800026(12)","value":12},{"name":"240e08780002e(7)","value":7},{"name":"240e08780002c(10)","value":10},{"name":"240e087800023(8)","value":8},{"name":"240e08780002d(9)","value":9},{"name":"240e08780002a(8)","value":8},{"name":"240e087800022(6)","value":6},{"name":"240e08780002b(14)","value":14},{"name":"240e087800029(10)","value":10},{"name":"240e087800020(7)","value":7},{"name":"240e087800025(4)","value":4},{"name":"240e087800028(16)","value":16},{"name":"240e087800024(15)","value":15},{"name":"240e08780002f(12)","value":12},{"name":"240e087800021(6)","value":6},{"name":"240e087800027(8)","value":8}],"name":"240e08780002(152)","value":152},{"children":[{"name":"240e08780001e(7)","value":7},{"name":"240e08780001f(7)","value":7},{"name":"240e08780001d(15)","value":15},{"name":"240e08780001c(8)","value":8},{"name":"240e08780001b(1)","value":1},{"name":"240e087800014(1)","value":1}],"name":"240e08780001(39)","value":39},{"children":[{"name":"240e087800041(16)","value":16},{"name":"240e087800043(8)","value":8},{"name":"240e087800044(3)","value":3},{"name":"240e087800040(15)","value":15},{"name":"240e087800042(7)","value":7}],"name":"240e08780004(49)","value":49}],"name":"240e0878000(410)","value":410
+          /*"children": [
             {
               "name": "analytics",
               "children": [
@@ -568,7 +572,7 @@
                 {"name": "Visualization", "value": 16540}
               ]
             }
-          ]
+          ]*/
         },
       }
     },
@@ -576,13 +580,27 @@
       this.drawLine()
     },
     methods:{
-      submit(){
-        this.$refs.upload.submit()
+      /*submitUpload() {
+        this.$refs.upload.submit();
       },
+      // http-request
+      fileUpload(file){
+        this.file = file
+        const fd = new FormData();
+        fd.append('file', this.file)
+        requestFileUpload(this.file).then(res =>{
+          this.success();
+        }).catch(error => {
+          console.log(error);
+        })
+      },*/
       handleRemove(file, fileList) {
         console.log(file);
       },
-      handlePreview(file) {
+      beforeUpload(file) {
+        this.file = file
+        const fd = new FormData();
+        fd.append("file", this.file)
         console.log(file);
       },
       beforeRemove(file, fileList) {
@@ -591,7 +609,9 @@
       handleExceed(file, fileList){
         return this.$message ('最多选择1个文件')
       },
-
+      success(){
+        return this.$message('文件上传成成功')
+      },
       // 绘图
       drawLine(){
         let myChart = echarts.init(document.getElementById('myChart'))
