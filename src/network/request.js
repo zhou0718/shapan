@@ -14,7 +14,7 @@ export function request(config) {
   instance.interceptors.request.use(config =>{
     // console.log(process.env.NODE_ENV);
     // console.log(process.env.VUE_APP_BASE_API)
-    if (config.url !== '/user/login'){
+   /* if (config.url !== '/user/login'){
       let token = localStorage.getItem('token')
       if(token){
         config.headers.token = `${token}`
@@ -23,7 +23,7 @@ export function request(config) {
         router.push('/login')
       }
     }
-    config.headers['Access-Control-Allow-Origin'] = 'http://119.23.29.212:8080'
+    config.headers['Access-Control-Allow-Origin'] = 'http://119.23.29.212:8080'*/
     /* config.headers['Access-Control-Allow-Origin'] = 'http://127.0.0.1:8080'
      config.headers['Access-Control-Allow-Credentials'] = 'true'
      config.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'*/

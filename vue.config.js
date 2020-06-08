@@ -37,7 +37,7 @@ module.exports = {
    port: 8081,
     proxy: { // 代理
       "/api": {
-        target: "http://119.23.29.212:8081", //访问的目标路径
+        target: "http://119.23.29.212:8086", //访问的目标路径
         ws: true,
         changOrigin: true, //实现跨域
         pathRewrite: {

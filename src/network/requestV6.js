@@ -6,7 +6,7 @@ import router from "../router";
 // 对axios的封装，之后的每个请求都可以用这个封装的方法请求api接口的数据
 export function request(config) {
   const instance = axios.create({
-    baseURL:"http://10.6.101.23:8086",
+    baseURL:"http://119.23.29.212:8086",
     // baseURL: '/api',
     timeout: 5000
   })
@@ -14,7 +14,7 @@ export function request(config) {
   instance.interceptors.request.use(config =>{
     // console.log(process.env.NODE_ENV);
     // console.log(process.env.VUE_APP_BASE_API)
-    if (config.url !== '/user/login'){
+   /* if (config.url !== '/user/login'){
       let token = localStorage.getItem('token')
       if(token){
         config.headers.token = `${token}`
@@ -24,14 +24,14 @@ export function request(config) {
       }
     }
     config.headers['Access-Control-Allow-Origin'] = 'http://119.23.29.212:8080'
-    /* config.headers['Access-Control-Allow-Origin'] = 'http://127.0.0.1:8080'
+    /!* config.headers['Access-Control-Allow-Origin'] = 'http://127.0.0.1:8080'
      config.headers['Access-Control-Allow-Credentials'] = 'true'
-     config.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'*/
+     config.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'*!/
 
     // 对config进行操作之后要将config返回出去
-    /*if(store.state.token){
+    /!*if(store.state.token){
       config.headers.Authorization = store.state.token
-    }*/
+    }*!/*/
     return config
   }, error => {
     console.log(error);

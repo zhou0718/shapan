@@ -580,7 +580,7 @@
         this.$refs.upload.submit()
       },
       handleRemove(file, fileList) {
-        console.log(file, fileList);
+        console.log(file);
       },
       handlePreview(file) {
         console.log(file);

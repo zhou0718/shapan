@@ -10,13 +10,13 @@ Vue.use(VueRouter)
   const routes = [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/order'
     },
-    {
+    /*{
       path: '/login',
       name: "Login",
       component: () => import('../views/login/loginPage')
-    },
+    },*/
     {
       path:'/index',
       component: Layout,
