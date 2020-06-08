@@ -74,7 +74,7 @@
 
 <script>
   /*import {requestWebsiteList, requestStop,requestStart} from "../../network/requestWebsite";*/
-  import {requestExplore,requestView} from "../../network/requestIPv6";
+  import {requestRouter} from "../../network/requestIPv6";
 
   export default {
     name: "index",
@@ -87,7 +87,7 @@
       }
     },
     mounted(){
-      requestExplore(this.currentPage,this.pageSize).then(res => {
+      requestRouter(this.currentPage,this.pageSize).then(res => {
         let data = res.data.data
         // console.log(data);
         this.tableData = data.data;
@@ -97,7 +97,7 @@
 
     methods:{
       handleCurrentChange(val) {
-        requestExplore(val,this.pageSize).then(res => {
+        requestRouter(val,this.pageSize).then(res => {
           let data = res.data.data
           this.tableData = data.data;
         })

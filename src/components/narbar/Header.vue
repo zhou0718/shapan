@@ -9,9 +9,7 @@
       <el-divider direction="vertical" class="divider"></el-divider>
     </span>
 
-   <!-- <img class="logo" src="../../assets/logo.png">
-    <span class="title" style="margin-left:24px">IPv6一键通管理系统</span>-->
-    <!--<div class="logo"><p><img src="../../assets/window.png" alt="">&lt;!&ndash;互联网金融网站运行态势监测子系统&ndash;&gt;</p></div>-->
+
     <div class="right-menu">
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
@@ -37,11 +35,6 @@
         </div>
       </el-dropdown>
     </div>
-      <!--<router-link to="/" tag="span" class="link">未备案核查</router-link>
-      <router-link to="/regist_statistics" tag="span" class="link">备案核查</router-link>
-      <router-link to="/classification" tag="span" class="link">网站分类</router-link>
-      <router-link to="/ip_check" tag="span" class="link">网站排行</router-link>
-      <router-link to="/web_crawling" tag="span" class="link">网站爬取</router-link>-->
 
   </div>
 </template>
@@ -95,13 +88,6 @@
   }
 
 
- /*.item{
-   position: absolute;
-   right: 10px;
-   top: 5px;
-   width: 70px;
-   height: 50px;
- }*/
 
   .avatar-container {
       padding: 0;
@@ -160,16 +146,20 @@
   position: absolute;
   left: 15px;
   top: 25px;
+  width: 33px;
+  height: 20px;
 }
 .divider{
   position: absolute;
-  left: 5px;
-  top: -2px;
+  left: 18px;
+  top: 2px;
 }
 .icon-bell{
   position: absolute;
   left: 60px;
   top: 25px;
+  width: 33px;
+  height: 20px;
 }
 .user{
   position: relative;

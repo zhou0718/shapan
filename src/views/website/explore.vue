@@ -86,7 +86,7 @@
 </template>
 
 <script>
-  import {requestExplore} from "../../network/requestIPv6";
+  import {requestRouter} from "../../network/requestIPv6";
 
   export default {
     name: "explore",
@@ -100,7 +100,7 @@
       }
     },
     mounted(){
-      requestExplore(this.currentPage,this.pageSize).then(res => {
+      requestRouter(this.currentPage,this.pageSize).then(res => {
         let data = res.data.data;
         this.total = data.total;
         this.tableData = data.data
@@ -118,7 +118,7 @@
         }
       },
       handleCurrentChange(val) {
-        requestExplore(val,this.pageSize).then(res => {
+        requestRouter(val,this.pageSize).then(res => {
           let data = res.data.data
           this.tableData = data.data;
         })

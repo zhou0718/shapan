@@ -1,143 +1,90 @@
 <template>
   <div class="webiste">
     <el-table
-       :data="tableData"
-        stripe
-        border
-        fit
-        style="width: 100%"
-        :header-cell-style="{'text-align':'left'}"
-    >
-     <!-- <el-table-column
-        type="index"
-        label="id"
-        width="50px"
-      />
+            :data="tableData"
+            stripe
+            border
+            fit
+            :header-cell-style="{'text-align':'left'}">
+      <el-table-column
+              prop="network"
+              label="network" />
 
       <el-table-column
-         prop="orderId"
-         label="订单号"
-         width="200px"
-      />-->
-<!--      <el-table-column-->
-<!--              prop="id"-->
-<!--              label="id" />-->
+              prop="netname"
+              label="netname" />
+      <el-table-column
+              prop="descr"
+              label="descr" />
 
       <el-table-column
-         prop="domainName"
-         label="域名" />
+              prop="company"
+              label="company" />
 
       <el-table-column
-         prop="isAgency"
-         label="是否开启代理" >
-        <template slot-scope="scope">
-          {{agency(scope.row)}}
-        </template>
-      </el-table-column>
+              prop="province"
+              label="province" />
 
       <el-table-column
-        prop="agencyServer"
-        label="代理服务器" />
-
+              prop="city"
+              label="city" />
       <el-table-column
-        label="修改状态" >
-        <template slot-scope="scope">
-          <el-button type="text" size="medium" @click="start(scope.row,scope.$index)">启动代理</el-button>
-          <el-button type="text" size="medium" @click="stop(scope.row,scope.$index)">停止代理</el-button>
-        </template>
-      </el-table-column>
-
-      <el-table-column
-              label="详情"
-              >
-        <template slot-scope="scope">
-          <el-button type="text" size="medium" @click="check(scope.row,scope.$index)">查看详情</el-button>
-        </template>
-      </el-table-column>
+              prop="country"
+              label="country" />
     </el-table>
-
-    <div class="block" style="float: right;margin-right: 5%;margin-top: 3%">
-     <!-- <el-pagination
-         :size-change="handleSizeChange"
-         :current-change="handleCurrentChange"
-         :current-page="currentPage"
-         :page-size="10"
-         layout="total,prev,pager,next,jumper"
-         :total="400" >
-
-      </el-pagination>-->
-    </div>
+    <el-pagination
+            class="pager"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage"
+            :page-size="pageSize"
+            layout="total, prev, pager, next, jumper"
+            :total="total">
+    </el-pagination>
   </div>
 </template>
 
 <script>
-  import {requestWebsiteList, requestStop,requestStart} from "../../network/requestWebsite";
+  import {requestGeo} from "../../network/requestIPv6";
 
   export default {
-    name: "index",
+    name: "localView",
     data(){
       return{
+        active:0,
         tableData:[],
+        total: 0,
+        pageSize: 50,
         currentPage:1,
       }
     },
     mounted(){
-      this.getWebsiteData()
+      requestGeo(this.currentPage,this.pageSize).then(res => {
+        let data = res.data.data;
+        this.total = data.total;
+        this.tableData = data.data
+      })
     },
-
     methods:{
-      getWebsiteData(){
-        requestWebsiteList().then(res => {
-          // console.log(res.data);
-          this.tableData = res.data.data
+      startExplore(){
+        /*  setTimeout(function () {
+            if(this.active++ > 3){
+              this.active = 0;
+            }
+          },2000)*/
+        if(this.active++ > 3){
+          this.active = 0;
+        }
+      },
+      handleCurrentChange(val) {
+        requestGeo(val,this.pageSize).then(res => {
+          let data = res.data.data
+          this.tableData = data.data;
         })
       },
-      agency(row){
-        if(row.isAgency === 1){
-          return "代理中"
-        }else
-          return "代理停止"
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
       },
-
-      start(row,index){  //启动代理服务
-        requestStart(row.id).then(res => {
-          this.$message.success("开启代理成功")
-          console.log(res.data.data);
-        }).catch(error => {
-          this.$message.error(error)
-        })
-      },
-
-      stop(row,index){  //停止代理服务
-        requestStop(row.id).then(res => {
-          // console.log(res);
-          this.$message.success("停止代理成功")
-        }).catch(error => {
-          this.$message.error(error)
-        })
-      },
-     /* start(row,index){  //启动代理服务
-        let status = 1
-        requestUpdate(row.domainName,status).then(res => {
-              this.$message.success("代理成功")
-            }).catch(error => {
-              this.$message.error(error)
-            })
-
-      },
-      end(row,index){  //停止代理服务
-        let status = 0
-        requestUpdate(row.domainName,status).then(res => {
-              this.$message.success("代理已停止")
-            }).catch(error => {
-              this.$message.error(error)
-            })
-
-      },*/
-
-      check(row,index){  //查看详情
-          this.$router.push({path:'/website/detail', query:{id:row.id,index: index}})
-      }
     }
   }
 </script>
@@ -145,5 +92,10 @@
 <style scoped>
  .webiste{
 
+ }
+ .pager{
+   width: 500px;
+   background-color: #f8f8f8;
+   margin-top: 15px;
  }
 </style>

@@ -684,79 +684,34 @@
          stripe
          border
          fit
-         :header-cell-style="{'text-align':'left'}"
-     >
-      <!-- <el-table-column
-         type="index"
-         label="id"
-         width="50px"
-       />
+         :header-cell-style="{'text-align':'left'}">
+      <el-table-column
+        type="index"/>
+       <el-table-column
+          prop="siteName"
+          label="site_name" />
 
        <el-table-column
-          prop="orderId"
-          label="订单号"
-          width="200px"
-       />-->
- <!--      <el-table-column-->
- <!--              prop="id"-->
- <!--              label="id" />-->
+          prop="siteType"
+          label="site_type" />
+       <el-table-column
+         prop="cname"
+         label="cname" />
 
        <el-table-column
-          prop="inet6num"
-          label="inet6num" />
+         prop="ns"
+         label="NS" />
 
        <el-table-column
-          prop="netname"
-          label="netname" >
-         <!--<template slot-scope="scope">
-
-         </template>-->
-       </el-table-column>
+               prop="v6DnsStatus"
+               label="v6_dns_status" />
 
        <el-table-column
-         prop="descr"
-         label="descr" />
-
+               prop="v6Address"
+               label="v6_address" />
        <el-table-column
-         prop="country"
-         label="country" >
-         <!--<template slot-scope="scope">
-           <el-button type="text" size="medium" @click="start(scope.row,scope.$index)">启动代理</el-button>
-           <el-button type="text" size="medium" @click="stop(scope.row,scope.$index)">停止代理</el-button>
-         </template>-->
-       </el-table-column>
-
-       <el-table-column
-               prop="adminC"
-               label="admin_c">
-         <!--<template slot-scope="scope">
-           <el-button type="text" size="medium" @click="check(scope.row,scope.$index)">查看详情</el-button>
-         </template>-->
-       </el-table-column>
-       <el-table-column
-               prop="techC"
-               label="tech_c" />
-       <el-table-column
-               prop="notify"
-               label="notify" />
-       <el-table-column
-               prop="changed"
-               label="changed" />
-       <el-table-column
-               prop="source"
-               label="source" />
-       <el-table-column
-               prop="mntBy"
-               label="mnt_by" />
-       <el-table-column
-               prop="status"
-               label="status" />
-      <!-- <el-table-column
-               prop="remarks"
-               label="remarks" />-->
-       <el-table-column
-               prop="mntLower"
-               label="mnt_lower" />
+               prop="probeTime"
+               label="probe_time" />
      </el-table>
      <el-pagination
              class="pager"
@@ -771,10 +726,10 @@
 </template>
 
 <script>
-  import {requestView} from "../../network/requestIPv6";
+  import {requestService} from "../../network/requestIPv6";
 
   export default {
-    name: "explore",
+    name: "serExplore",
     data(){
       return{
         active:0,
@@ -785,7 +740,7 @@
       }
     },
     mounted(){
-      requestView(this.currentPage,this.pageSize).then(res => {
+      requestService(this.currentPage,this.pageSize).then(res => {
         let data = res.data.data;
         this.total = data.total;
         this.tableData = data.data
@@ -803,7 +758,7 @@
         }
       },
       handleCurrentChange(val) {
-        requestView(val,this.pageSize).then(res => {
+        requestService(val,this.pageSize).then(res => {
           let data = res.data.data
           this.tableData = data.data;
         })
