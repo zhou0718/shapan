@@ -31,7 +31,7 @@ Vue.prototype.$qs = qs*/
 
 import './icons'
 Vue.config.productionTip = true
-document.title = '安奇信IPv6资产探查平台'
+document.title = 'IPv6资产探测平台'
 
 new Vue({
   router,

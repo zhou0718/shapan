@@ -668,7 +668,7 @@
 </style>-->
 <template>
   <div class="explore">
-    <div class="explore-top">
+   <!-- <div class="explore-top">
       <el-button type="primary" @click="startExplore">开始探测</el-button>
       <div class="my-steps">
         <el-steps :active="active" finish-status="success">
@@ -678,7 +678,7 @@
           <el-step title="生成结果"></el-step>
         </el-steps>
       </div>
-    </div>
+    </div>-->
     <div class="explore-table">
       <el-table
               :data="tableData"

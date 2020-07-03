@@ -30,7 +30,7 @@ Vue.use(VueRouter)
           name: 'Order',
           component: () => import('../views/order/order'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         /*
@@ -45,7 +45,7 @@ Vue.use(VueRouter)
           name: 'Detail',
           component: () => import('../views/order/Detail'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -53,7 +53,7 @@ Vue.use(VueRouter)
           name: 'Earth',
           component: () => import('../views/order/earth'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -61,7 +61,7 @@ Vue.use(VueRouter)
           name: 'User',
           component: () => import('../views/user/User'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -69,7 +69,7 @@ Vue.use(VueRouter)
           name: 'UserDetail',
           component: () => import('../views/user/UserDetail'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -77,7 +77,7 @@ Vue.use(VueRouter)
           name: 'Website',
           component: () => import('../views/website/Website'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -85,7 +85,7 @@ Vue.use(VueRouter)
           name: 'Explore',
           component: () => import('../views/website/explore'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -93,14 +93,14 @@ Vue.use(VueRouter)
           name: 'Statistics',
           component: () => import('../views/website/statistics'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
           path: '/website/detail',
           component: () => import('../views/website/WebsiteDetail'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -108,14 +108,14 @@ Vue.use(VueRouter)
           name: 'Dot',
           component: () => import('../views/website/dot'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
           path: '/demo',
           component: () => import('../views/website/Demo'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -123,7 +123,7 @@ Vue.use(VueRouter)
           name: 'Proxy',
           component: () => import('../views/proxy/Proxy'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -131,7 +131,7 @@ Vue.use(VueRouter)
           name: 'AddrExplore',
           component: () => import('../views/addr/addrExplore'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -139,7 +139,7 @@ Vue.use(VueRouter)
           name: 'AddrStatistics',
           component: () => import('../views/addr/addrStatistics'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -147,7 +147,7 @@ Vue.use(VueRouter)
           name: 'AddrViews',
           component: () => import('../views/addr/addrView'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -155,7 +155,7 @@ Vue.use(VueRouter)
           name: 'serviceExplore',
           component: () => import('../views/service/serviceExplore'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -163,7 +163,7 @@ Vue.use(VueRouter)
           name: 'ServiceStatistics',
           component: () => import('../views/service/serviceStatistics'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -171,7 +171,7 @@ Vue.use(VueRouter)
           name: 'ServiceViews',
           component: () => import('../views/service/serviceView'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -179,7 +179,7 @@ Vue.use(VueRouter)
           name: 'LocalExplore',
           component: () => import('../views/location/localExplore'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -187,7 +187,7 @@ Vue.use(VueRouter)
           name: 'LocalStatistics',
           component: () => import('../views/location/localStatistics'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
         {
@@ -195,7 +195,7 @@ Vue.use(VueRouter)
           name: 'LocalViews',
           component: () => import('../views/location/localView'),
           meta:{
-            title:'安奇信IPv6资产探查平台',
+            title:'IPv6资产探测平台',
           },
         },
 

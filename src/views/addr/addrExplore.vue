@@ -742,9 +742,9 @@
         <el-table-column
                 prop="notify"
                 label="notify" />
-        <el-table-column
+        <!--<el-table-column
                 prop="changed"
-                label="changed" />
+                label="changed" />-->
         <el-table-column
                 prop="source"
                 label="source" />
@@ -786,30 +786,39 @@
         total: 0,
         pageSize: 50,
         currentPage:1,
+        data:{}
       }
     },
     mounted(){
       requestAddr(this.currentPage,this.pageSize).then(res => {
-        let data = res.data.data;
-        this.total = data.total;
-        this.tableData = data.data
+        this.data = res.data.data;
+
+        // this.tableData = data.data
+        // this.data = data.data
       })
     },
     methods:{
-      startExplore(){
-        /*  setTimeout(function () {
-            if(this.active++ > 3){
-              this.active = 0;
-            }
-          },2000)*/
-        if(this.active++ > 3){
-          this.active = 0;
-        }
+      test(){
+        setTimeout(() => {
+          this.active++
+        },2000)
+        if(this.active > 3)
+          this.active = 0
+      },
+      startExplore() {
+        setTimeout(this.test,500)
+        setTimeout(this.test,2000)
+        setTimeout(this.test,3000)
+        setTimeout(this.test,4000)
+        setTimeout(() => {
+          this.tableData = this.data.data
+          this.total = this.data.total;
+        },6000)
       },
       handleCurrentChange(val) {
         requestAddr(val,this.pageSize).then(res => {
-          let data = res.data.data
-          this.tableData = data.data;
+          this.data = res.data.data
+          this.tableData = this.data.data;
         })
       },
       handleSizeChange(val) {

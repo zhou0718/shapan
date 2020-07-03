@@ -171,7 +171,7 @@
      <!-- <el-button class="upload" style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>-->
     </div>
 
-    <div class="echart-tree">
+    <div :class="{active: isActive}" class="echart-tree">
       <div id="myChart" class="mycharts" :style="{width:'1200px',height:'600px'}"></div>
     </div>
   </div>
@@ -193,6 +193,7 @@
       return{
         file:null,
         fileList: [],
+        isActive: true,
         chartData: {
           /*"name": "flare",*/
           "children":[{"children":[{"name":"240e087800034(11)","value":11},{"name":"240e087800035(9)","value":9},{"name":"240e087800033(9)","value":9},{"name":"240e087800036(10)","value":10},{"name":"240e087800039(10)","value":10},{"name":"240e087800032(11)","value":11},{"name":"240e087800030(10)","value":10},{"name":"240e087800038(11)","value":11},{"name":"240e087800037(9)","value":9},{"name":"240e087800031(9)","value":9},{"name":"240e08780003a(5)","value":5}],"name":"240e08780003(104)","value":104},{"children":[{"name":"240e087800008(11)","value":11},{"name":"240e087800006(4)","value":4},{"name":"240e087800009(10)","value":10},{"name":"240e08780000a(11)","value":11},{"name":"240e087800001(8)","value":8},{"name":"240e087800000(4)","value":4},{"name":"240e08780000b(6)","value":6},{"name":"240e087800003(1)","value":1},{"name":"240e08780000c(3)","value":3},{"name":"240e087800007(8)","value":8}],"name":"240e08780000(66)","value":66},{"children":[{"name":"240e087800026(12)","value":12},{"name":"240e08780002e(7)","value":7},{"name":"240e08780002c(10)","value":10},{"name":"240e087800023(8)","value":8},{"name":"240e08780002d(9)","value":9},{"name":"240e08780002a(8)","value":8},{"name":"240e087800022(6)","value":6},{"name":"240e08780002b(14)","value":14},{"name":"240e087800029(10)","value":10},{"name":"240e087800020(7)","value":7},{"name":"240e087800025(4)","value":4},{"name":"240e087800028(16)","value":16},{"name":"240e087800024(15)","value":15},{"name":"240e08780002f(12)","value":12},{"name":"240e087800021(6)","value":6},{"name":"240e087800027(8)","value":8}],"name":"240e08780002(152)","value":152},{"children":[{"name":"240e08780001e(7)","value":7},{"name":"240e08780001f(7)","value":7},{"name":"240e08780001d(15)","value":15},{"name":"240e08780001c(8)","value":8},{"name":"240e08780001b(1)","value":1},{"name":"240e087800014(1)","value":1}],"name":"240e08780001(39)","value":39},{"children":[{"name":"240e087800041(16)","value":16},{"name":"240e087800043(8)","value":8},{"name":"240e087800044(3)","value":3},{"name":"240e087800040(15)","value":15},{"name":"240e087800042(7)","value":7}],"name":"240e08780004(49)","value":49}],"name":"240e0878000(410)","value":410
@@ -610,6 +611,9 @@
         return this.$message ('最多选择1个文件')
       },
       success(){
+        setTimeout(() => {
+          this.isActive = false
+        },800)
         return this.$message('文件上传成成功')
       },
       // 绘图
@@ -639,9 +643,9 @@
 
               label: {
                 position: 'top',
-                rotate: -90,
+                rotate: 0,
                 verticalAlign: 'middle',
-                align: 'right',
+                align: 'center',
                 fontSize: 9
               },
 
@@ -683,6 +687,8 @@
   }
   .echart-tree{
     margin: 60px 0 0 35px;
-
+  }
+  .active{
+    display: none;
   }
 </style>

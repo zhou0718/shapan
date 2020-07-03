@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5637662",
+      "name": "路由器",
+      "font_class": "luyouqi",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "6884427",
+      "name": "可视化",
+      "font_class": "keshihua",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
       "icon_id": "59344",
       "name": "arrow_down",
       "font_class": "arrowdown",
